@@ -1,0 +1,39 @@
+.service-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(78, 14, 52, 0.1) 0%, rgba(122, 18, 43, 0.1) 100%);
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.service-icon:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.service-icon__svg {
+  color: #4E0E34;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-icon:hover .service-icon__svg {
+  color: #7A122B;
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .service-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+  }
+  
+  .service-icon__emoji {
+    font-size: 2rem;
+  }
+}
+

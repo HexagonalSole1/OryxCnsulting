@@ -1,0 +1,21 @@
+.hero-subtitle {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: #868586;
+  margin: 1.5rem 0 0 0;
+  max-width: 700px;
+}
+
+@media (max-width: 768px) {
+  .hero-subtitle {
+    font-size: 1.125rem;
+    margin: 1rem 0 0 0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .hero-subtitle {
+    color: #cbd5e0;
+  }
+}
+

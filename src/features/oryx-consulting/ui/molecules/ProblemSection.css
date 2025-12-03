@@ -1,0 +1,130 @@
+.problem-section__header {
+  text-align: center;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.problem-section__header--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.problem-section__title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  color: #1C1A1A;
+}
+
+.problem-section__subtitle {
+  font-size: 1.125rem;
+  color: #868586;
+  margin: 0;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.problem-section__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.problem-card {
+  padding: 2rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-left: 4px solid #7A122B;
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+}
+
+.problem-card--visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.problem-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.problem-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+.problem-card__icon-svg {
+  color: #7A122B;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.problem-card:hover .problem-card__icon-svg {
+  transform: scale(1.1);
+}
+
+.problem-card__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: #1C1A1A;
+}
+
+.problem-card__description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #868586;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .problem-section__title {
+    font-size: 2rem;
+  }
+  
+  .problem-section__subtitle {
+    font-size: 1rem;
+  }
+  
+  .problem-section__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .problem-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .problem-section__title {
+    color: #f7fafc;
+  }
+  
+  .problem-section__subtitle {
+    color: #cbd5e0;
+  }
+  
+  .problem-card {
+    background: #1C1A1A;
+  }
+  
+  .problem-card__title {
+    color: #f7fafc;
+  }
+  
+  .problem-card__description {
+    color: #cbd5e0;
+  }
+}
+

@@ -1,0 +1,85 @@
+.button {
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.button--small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.button--medium {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.button--large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+.button--primary {
+  background-color: #4E0E34;
+  color: white;
+}
+
+.button--primary:hover {
+  background-color: #7A122B;
+}
+
+.button--secondary {
+  background-color: transparent;
+  color: #4E0E34;
+  border: 1px solid #4E0E34;
+}
+
+.button--secondary:hover {
+  background-color: rgba(78, 14, 52, 0.1);
+}
+
+.button--outline {
+  background-color: transparent;
+  color: inherit;
+  border: 1px solid currentColor;
+}
+
+.button--outline:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.button--accent {
+  background: linear-gradient(135deg, #7A122B 0%, #4E0E34 100%);
+  color: white;
+  border: none;
+}
+
+.button--accent:hover {
+  background: linear-gradient(135deg, #4E0E34 0%, #7A122B 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(122, 18, 43, 0.4);
+}
+
+.button--full-width {
+  width: 100%;
+}
+
+.button--gradient {
+  background: linear-gradient(135deg, #4E0E34 0%, #7A122B 100%);
+  color: white;
+  border: none;
+}
+
+.button--gradient:hover {
+  background: linear-gradient(135deg, #7A122B 0%, #4E0E34 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(78, 14, 52, 0.4);
+}
+

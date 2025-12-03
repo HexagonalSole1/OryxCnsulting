@@ -1,0 +1,35 @@
+.section {
+  padding: 4rem 0;
+  width: 100%;
+}
+
+.section--default {
+  background-color: transparent;
+}
+
+.section--light {
+  background-color: #f8f9fa;
+}
+
+.section--dark {
+  background-color: #1a2332;
+  color: white;
+}
+
+.section--gradient {
+  background: linear-gradient(135deg, #1a2332 0%, #2d3748 100%);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .section--light {
+    background-color: #0f172a;
+  }
+}
+

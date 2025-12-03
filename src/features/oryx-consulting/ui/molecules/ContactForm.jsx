@@ -80,8 +80,74 @@ export default function ContactForm({ contactData }) {
     setIsSubmitting(true)
     setSubmitStatus(null)
 
-    // Simular envío de formulario
-    setTimeout(() => {
+    try {
+      // Preparar el contenido del email
+      const emailSubject = encodeURIComponent(`Consulta desde OryxCnsulting - ${formData.name || 'Cliente'}`)
+      
+      let emailBody = `Hola,\n\nHe completado el formulario de contacto en OryxCnsulting.\n\n`
+      emailBody += `Datos de contacto:\n`
+      emailBody += `Nombre: ${formData.name || 'No proporcionado'}\n`
+      emailBody += `Email: ${formData.email || 'No proporcionado'}\n`
+      if (formData.company) emailBody += `Empresa: ${formData.company}\n`
+      if (formData.phone) emailBody += `Teléfono: ${formData.phone}\n`
+      if (formData.message) {
+        emailBody += `\nMensaje:\n${formData.message}\n`
+      }
+      emailBody += `\n---\nEste mensaje fue enviado desde el formulario de contacto de OryxCnsulting.`
+      
+      const emailBodyEncoded = encodeURIComponent(emailBody)
+      const recipientEmail = 'deskrun@gmail.com'
+      
+      // Crear el enlace mailto
+      const mailtoLink = `mailto:${recipientEmail}?subject=${emailSubject}&body=${emailBodyEncoded}`
+      
+      // Abrir el cliente de email
+      window.location.href = mailtoLink
+      
+      // También intentar enviar con EmailJS si está configurado
+      const emailjsConfig = {
+        serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      }
+      
+      if (emailjsConfig.serviceId && emailjsConfig.templateId && emailjsConfig.publicKey) {
+        try {
+          const emailjs = await import('@emailjs/browser')
+          
+          await emailjs.send(
+            emailjsConfig.serviceId,
+            emailjsConfig.templateId,
+            {
+              from_name: formData.name || 'Cliente',
+              from_email: formData.email || 'No proporcionado',
+              company: formData.company || 'No proporcionado',
+              phone: formData.phone || 'No proporcionado',
+              message: formData.message || 'Sin mensaje adicional',
+              to_email: 'deskrun@gmail.com',
+              to_phone: '+525591392919'
+            },
+            emailjsConfig.publicKey
+          )
+          
+          // Si EmailJS funciona, mostrar éxito
+          setIsSubmitting(false)
+          setSubmitStatus('success')
+          setFormData({})
+          setErrors({})
+          setTouched({})
+          
+          setTimeout(() => {
+            setSubmitStatus(null)
+          }, 5000)
+          return
+        } catch (emailjsError) {
+          console.log('EmailJS no configurado o error:', emailjsError)
+          // Continuar con mailto como fallback
+        }
+      }
+      
+      // Si EmailJS no está configurado, usar mailto
       setIsSubmitting(false)
       setSubmitStatus('success')
       setFormData({})
@@ -91,7 +157,16 @@ export default function ContactForm({ contactData }) {
       setTimeout(() => {
         setSubmitStatus(null)
       }, 5000)
-    }, 1500)
+      
+    } catch (error) {
+      console.error('Error al enviar formulario:', error)
+      setIsSubmitting(false)
+      setSubmitStatus('error')
+      
+      setTimeout(() => {
+        setSubmitStatus(null)
+      }, 5000)
+    }
   }
 
   return (
@@ -102,7 +177,7 @@ export default function ContactForm({ contactData }) {
           <p className="contact-form-section__subtitle">{contactData.subtitle}</p>
         </div>
 
-        <form className="contact-form" onSubmit={handleSubmit}>
+        <form className="contact-form" onSubmit={handleSubmit} noValidate>
           <div className="contact-form__grid">
             {contactData.formFields.map(field => (
               <div 
@@ -160,7 +235,13 @@ export default function ContactForm({ contactData }) {
 
           {submitStatus === 'success' && (
             <div className="contact-form__success">
-              ✓ ¡Gracias! Nos pondremos en contacto contigo pronto.
+              ✓ ¡Gracias! Tu consulta ha sido enviada. Nos pondremos en contacto contigo pronto.
+            </div>
+          )}
+          
+          {submitStatus === 'error' && (
+            <div className="contact-form__error-message">
+              ✗ Hubo un error al enviar tu mensaje. Por favor, intenta nuevamente o contáctanos directamente a deskrun@gmail.com
             </div>
           )}
 

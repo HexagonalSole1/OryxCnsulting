@@ -4,18 +4,19 @@
 }
 
 .process-section__title {
-  font-size: 2.5rem;
+  font-size: var(--font-size-4xl);
   font-weight: 800;
   margin: 0 0 1rem 0;
-  background: linear-gradient(135deg, #1C1A1A 0%, #4E0E34 100%);
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--color-primary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .process-section__subtitle {
-  font-size: 1.125rem;
-  color: #868586;
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
   margin: 0;
 }
 
@@ -40,15 +41,16 @@
 .process-section__connector-line {
   width: 2px;
   height: 60px;
-  background: linear-gradient(to bottom, #4E0E34, #7A122B);
+  background: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
   margin-bottom: 0.5rem;
 }
 
 .process-section__connector-arrow {
   font-size: 2rem;
-  color: #4E0E34;
+  color: var(--color-primary);
   line-height: 1;
   animation: bounce 2s infinite;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes bounce {

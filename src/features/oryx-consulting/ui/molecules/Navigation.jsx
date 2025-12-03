@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
+import { MessageCircle, ArrowRight } from 'lucide-react'
 import Button from '../../../../shared/ui/atoms/Button'
 import Container from '../../../../shared/ui/atoms/Container'
+import ThemeToggle from '../../../../components/ThemeToggle'
 import './Navigation.css'
 
 export default function Navigation() {
@@ -35,6 +37,31 @@ export default function Navigation() {
       setIsMobileMenuOpen(false)
     }
   }
+
+  // Detectar sección activa al hacer scroll
+  const [activeSection, setActiveSection] = useState('')
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['services', 'process', 'team', 'contact']
+      const scrollPosition = window.scrollY + 100
+
+      for (const section of sections) {
+        const element = document.getElementById(section)
+        if (element) {
+          const { offsetTop, offsetHeight } = element
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section)
+            break
+          }
+        }
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll() // Llamar una vez al montar
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <nav 
@@ -71,39 +98,43 @@ export default function Navigation() {
           
           <div className={`navigation__links ${isMobileMenuOpen ? 'navigation__links--open' : ''}`}>
             <button 
-              className="navigation__link"
+              className={`navigation__link ${activeSection === 'services' ? 'navigation__link--active' : ''}`}
               onClick={() => scrollToSection('services')}
             >
               Servicios
             </button>
             <button 
-              className="navigation__link"
+              className={`navigation__link ${activeSection === 'process' ? 'navigation__link--active' : ''}`}
               onClick={() => scrollToSection('process')}
             >
               Metodología
             </button>
             <button 
-              className="navigation__link"
+              className={`navigation__link ${activeSection === 'team' ? 'navigation__link--active' : ''}`}
               onClick={() => scrollToSection('team')}
             >
               Equipo
             </button>
             <button 
-              className="navigation__link"
+              className={`navigation__link ${activeSection === 'contact' ? 'navigation__link--active' : ''}`}
               onClick={() => scrollToSection('contact')}
             >
               Contacto
             </button>
           </div>
           
-          <Button 
-            variant="accent" 
-            size="small"
-            onClick={() => scrollToSection('contact')}
-            className="navigation__cta"
-          >
-            Consulta Gratuita
-          </Button>
+          <div className="navigation__actions">
+            <ThemeToggle />
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="navigation__cta"
+              aria-label="Solicitar consulta gratuita"
+            >
+              <MessageCircle className="navigation__cta-icon" size={18} strokeWidth={2.5} />
+              <span className="navigation__cta-text">Consulta Gratuita</span>
+              <ArrowRight className="navigation__cta-arrow" size={16} strokeWidth={2.5} />
+            </button>
+          </div>
         </div>
       </Container>
     </nav>

@@ -40,17 +40,18 @@ function ProblemCard({ problem, delay }) {
   const [cardRef, isVisible] = useIntersectionObserver({ threshold: 0.2 })
   
   return (
-    <div 
+    <article 
       ref={cardRef}
       className={`problem-card ${isVisible ? 'problem-card--visible' : ''}`}
       style={{ animationDelay: `${delay}ms` }}
+      aria-labelledby={`problem-title-${problem.id}`}
     >
-      <div className="problem-card__icon">
+      <div className="problem-card__icon" aria-hidden="true">
         <AlertTriangle className="problem-card__icon-svg" size={32} strokeWidth={1.5} />
       </div>
-      <h3 className="problem-card__title">{problem.title}</h3>
+      <h3 id={`problem-title-${problem.id}`} className="problem-card__title">{problem.title}</h3>
       <p className="problem-card__description">{problem.description}</p>
-    </div>
+    </article>
   )
 }
 

@@ -1,28 +1,27 @@
 .card {
-  background: white;
+  background: var(--bg-primary);
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--border-color);
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-md);
 }
 
 .card--neumorphic {
-  background: #f0f0f3;
-  box-shadow: 
-    8px 8px 16px #d1d1d4,
-    -8px -8px 16px #ffffff;
+  background: var(--bg-tertiary);
+  box-shadow: var(--neu-shadow-light);
   border: none;
 }
 
 .card--neumorphic:hover {
-  box-shadow: 
-    4px 4px 8px #d1d1d4,
-    -4px -4px 8px #ffffff;
+  box-shadow: var(--neu-shadow-light-hover);
   transform: translateY(-2px);
 }
 
@@ -31,35 +30,11 @@
 }
 
 .card--elevated {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-lg);
 }
 
 .card--elevated:hover {
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  box-shadow: var(--shadow-xl);
   transform: translateY(-6px);
-}
-
-@media (prefers-color-scheme: dark) {
-  .card {
-    background: #1a1a1a;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  }
-  
-  .card:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-  }
-  
-  .card--neumorphic {
-    background: #2a2a2a;
-    box-shadow: 
-      8px 8px 16px #1a1a1a,
-      -8px -8px 16px #3a3a3a;
-  }
-  
-  .card--neumorphic:hover {
-    box-shadow: 
-      4px 4px 8px #1a1a1a,
-      -4px -4px 8px #3a3a3a;
-  }
 }
 

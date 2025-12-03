@@ -13,15 +13,15 @@
 }
 
 .problem-section__title {
-  font-size: 2.5rem;
+  font-size: var(--font-size-4xl);
   font-weight: 800;
   margin: 0 0 1rem 0;
-  color: #1C1A1A;
+  color: var(--text-primary);
 }
 
 .problem-section__subtitle {
-  font-size: 1.125rem;
-  color: #868586;
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
   margin: 0;
   max-width: 700px;
   margin-left: auto;
@@ -36,13 +36,18 @@
 
 .problem-card {
   padding: 2rem;
-  background: white;
+  background: var(--bg-primary);
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-sm);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 600ms cubic-bezier(0.4, 0, 0.2, 1);
-  border-left: 4px solid #7A122B;
+              opacity 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-left: 4px solid var(--color-secondary);
+}
+
+[data-theme="dark"] .problem-card {
+  border-left-color: var(--color-primary);
   opacity: 0;
   transform: translateY(30px) scale(0.95);
 }
@@ -54,7 +59,7 @@
 
 .problem-card:hover {
   transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-md);
 }
 
 .problem-card__icon {
@@ -65,7 +70,7 @@
 }
 
 .problem-card__icon-svg {
-  color: #7A122B;
+  color: var(--color-secondary);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -74,16 +79,16 @@
 }
 
 .problem-card__title {
-  font-size: 1.5rem;
+  font-size: var(--font-size-2xl);
   font-weight: 700;
   margin: 0 0 1rem 0;
-  color: #1C1A1A;
+  color: var(--text-primary);
 }
 
 .problem-card__description {
-  font-size: 1rem;
+  font-size: var(--font-size-base);
   line-height: 1.7;
-  color: #868586;
+  color: var(--text-secondary);
   margin: 0;
 }
 

@@ -30,11 +30,12 @@ export default function TestimonialCarousel({ testimonials }) {
           </p>
         </div>
 
-        <div className="testimonial-carousel">
+        <div className="testimonial-carousel" role="region" aria-label="Testimonios de clientes">
           <button 
             className="testimonial-carousel__nav testimonial-carousel__nav--prev"
             onClick={prevTestimonial}
             aria-label="Testimonio anterior"
+            type="button"
           >
             ‹
           </button>
@@ -56,18 +57,26 @@ export default function TestimonialCarousel({ testimonials }) {
             className="testimonial-carousel__nav testimonial-carousel__nav--next"
             onClick={nextTestimonial}
             aria-label="Siguiente testimonio"
+            type="button"
           >
             ›
           </button>
         </div>
 
-        <div className="testimonial-carousel__indicators">
+        <div 
+          className="testimonial-carousel__indicators"
+          role="tablist"
+          aria-label="Navegación de testimonios"
+        >
           {testimonials.map((_, index) => (
             <button
               key={index}
               className={`testimonial-carousel__indicator ${index === currentIndex ? 'testimonial-carousel__indicator--active' : ''}`}
               onClick={() => setCurrentIndex(index)}
               aria-label={`Ir al testimonio ${index + 1}`}
+              aria-selected={index === currentIndex}
+              role="tab"
+              type="button"
             />
           ))}
         </div>

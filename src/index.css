@@ -10,16 +10,16 @@
   line-height: 1.5;
   font-weight: 400;
   
-  /* Escala tipográfica */
-  --font-size-xs: 0.75rem;    /* 12px */
-  --font-size-sm: 0.875rem;  /* 14px */
-  --font-size-base: 1rem;     /* 16px */
-  --font-size-lg: 1.125rem;   /* 18px */
-  --font-size-xl: 1.25rem;    /* 20px */
-  --font-size-2xl: 1.5rem;    /* 24px */
-  --font-size-3xl: 1.875rem;  /* 30px */
-  --font-size-4xl: 2.25rem;   /* 36px */
-  --font-size-5xl: 3rem;      /* 48px */
+  /* Escala tipográfica - Mobile First con clamp() */
+  --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);    /* 12-14px */
+  --font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);     /* 14-16px */
+  --font-size-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);    /* 16-18px */
+  --font-size-lg: clamp(1.125rem, 1rem + 0.625vw, 1.5rem);     /* 18-24px */
+  --font-size-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.875rem);   /* 20-30px */
+  --font-size-2xl: clamp(1.5rem, 1.3rem + 1vw, 2.25rem);       /* 24-36px */
+  --font-size-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 3rem);    /* 30-48px */
+  --font-size-4xl: clamp(2.25rem, 1.8rem + 2.25vw, 4rem);      /* 36-64px */
+  --font-size-5xl: clamp(3rem, 2.5rem + 2.5vw, 5rem);          /* 48-80px */
   
   /* Pesos de fuente */
   --font-weight-light: 300;
@@ -35,13 +35,20 @@
   --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
   
   /* Espaciado consistente */
-  --spacing-xs: 0.25rem;   /* 4px */
-  --spacing-sm: 0.5rem;     /* 8px */
-  --spacing-md: 1rem;       /* 16px */
-  --spacing-lg: 1.5rem;     /* 24px */
-  --spacing-xl: 2rem;       /* 32px */
-  --spacing-2xl: 3rem;       /* 48px */
-  --spacing-3xl: 4rem;      /* 64px */
+  --spacing-xs: clamp(0.25rem, 0.2rem + 0.25vw, 0.5rem);   /* 4-8px */
+  --spacing-sm: clamp(0.5rem, 0.4rem + 0.5vw, 1rem);       /* 8-16px */
+  --spacing-md: clamp(1rem, 0.8rem + 1vw, 1.5rem);          /* 16-24px */
+  --spacing-lg: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);     /* 24-40px */
+  --spacing-xl: clamp(2rem, 1.6rem + 2vw, 3rem);            /* 32-48px */
+  --spacing-2xl: clamp(3rem, 2.4rem + 3vw, 4.5rem);         /* 48-72px */
+  --spacing-3xl: clamp(4rem, 3.2rem + 4vw, 6rem);           /* 64-96px */
+  
+  /* Breakpoints como variables (para JS si es necesario) */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
 }
 
 body {
@@ -51,13 +58,54 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Focus visible mejorado para accesibilidad */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Mejorar contraste de enlaces */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a:hover {
+  color: var(--color-secondary);
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 /* Mejora de rendimiento - GPU acceleration */
 .hero-with-data-viz,
 .navigation,
 .service-card,
-.problem-card {
+.problem-card,
+.process-step {
   will-change: transform;
   transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimización de animaciones */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

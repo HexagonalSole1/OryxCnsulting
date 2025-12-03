@@ -60,7 +60,13 @@ export default function HeroWithDataViz({ heroData }) {
 
           if (distance < 150) {
             connections.push({ from: nodes[i], to: nodes[j], distance })
-            ctx.strokeStyle = `rgba(78, 14, 52, ${1 - distance / 150})`
+            // Usar variables CSS para el color (adaptativo al theme)
+            const root = getComputedStyle(document.documentElement)
+            const isDark = root.getPropertyValue('--bg-primary').trim().includes('0A0E27') || 
+                           document.documentElement.getAttribute('data-theme') === 'dark'
+            const primaryColor = isDark ? '#C084FC' : '#4E0E34'
+            const rgb = hexToRgb(primaryColor)
+            ctx.strokeStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${(1 - distance / 150) * (isDark ? 0.6 : 1)})`
             ctx.lineWidth = 1
             ctx.beginPath()
             ctx.moveTo(nodes[i].x, nodes[i].y)
@@ -71,9 +77,23 @@ export default function HeroWithDataViz({ heroData }) {
       }
     }
 
+    const hexToRgb = (hex) => {
+      const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+      return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+      } : { r: 78, g: 14, b: 52 }
+    }
+
     const drawNodes = () => {
+      const root = getComputedStyle(document.documentElement)
+      const isDark = root.getPropertyValue('--bg-primary').trim().includes('0A0E27') || 
+                     document.documentElement.getAttribute('data-theme') === 'dark'
+      const nodeColor = isDark ? '#C084FC' : '#7A122B'
+      const rgb = hexToRgb(nodeColor)
       nodes.forEach(node => {
-        ctx.fillStyle = 'rgba(122, 18, 43, 0.6)'
+        ctx.fillStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${isDark ? 0.4 : 0.6})`
         ctx.beginPath()
         ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2)
         ctx.fill()
@@ -125,7 +145,7 @@ export default function HeroWithDataViz({ heroData }) {
   }, [])
 
   return (
-    <div ref={heroRef} className="hero-with-data-viz">
+    <section ref={heroRef} className="hero-with-data-viz" aria-label="Sección principal">
       <canvas 
         ref={canvasRef} 
         className="hero-with-data-viz__canvas"
@@ -184,8 +204,12 @@ export default function HeroWithDataViz({ heroData }) {
               <p className="hero-with-data-viz__credibility-label">Certificaciones y Partners:</p>
               <div className="hero-with-data-viz__logos">
                 {heroData.credibilityLogos.map((logo, index) => (
-                  <div key={index} className="hero-with-data-viz__logo">
-                    <Cloud className="hero-with-data-viz__logo-icon" size={20} strokeWidth={1.5} />
+                  <div 
+                    key={index} 
+                    className="hero-with-data-viz__logo"
+                    aria-label={logo.name}
+                  >
+                    <Cloud className="hero-with-data-viz__logo-icon" size={20} strokeWidth={1.5} aria-hidden="true" />
                     <span className="hero-with-data-viz__logo-name">{logo.name}</span>
                   </div>
                 ))}
@@ -194,7 +218,7 @@ export default function HeroWithDataViz({ heroData }) {
           )}
         </div>
       </Container>
-    </div>
+    </section>
   )
 }
 

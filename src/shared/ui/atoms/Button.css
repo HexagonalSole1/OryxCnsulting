@@ -4,11 +4,15 @@
   font-family: inherit;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  min-height: 44px;
+  min-width: 44px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .button--small {
@@ -27,32 +31,56 @@
 }
 
 .button--primary {
-  background-color: #4E0E34;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--text-inverse);
 }
 
 .button--primary:hover {
-  background-color: #7A122B;
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.button--primary:active {
+  transform: translateY(0);
+}
+
+.button--primary:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 .button--secondary {
   background-color: transparent;
-  color: #4E0E34;
-  border: 1px solid #4E0E34;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
 }
 
 .button--secondary:hover {
-  background-color: rgba(78, 14, 52, 0.1);
+  background-color: var(--bg-secondary);
+  border-color: var(--color-primary-hover);
+}
+
+.button--secondary:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 .button--outline {
   background-color: transparent;
-  color: inherit;
-  border: 1px solid currentColor;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color-strong);
 }
 
 .button--outline:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: var(--bg-secondary);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.button--outline:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 .button--accent {
@@ -72,14 +100,19 @@
 }
 
 .button--gradient {
-  background: linear-gradient(135deg, #4E0E34 0%, #7A122B 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  color: var(--text-inverse);
   border: none;
 }
 
 .button--gradient:hover {
-  background: linear-gradient(135deg, #7A122B 0%, #4E0E34 100%);
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(78, 14, 52, 0.4);
+  box-shadow: var(--shadow-md);
+}
+
+.button--gradient:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 

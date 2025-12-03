@@ -38,6 +38,8 @@ export default function ServiceCard({ service }) {
       style={{
         transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`
       }}
+      role="article"
+      aria-label={`Servicio: ${service.title}`}
     >
       <ServiceIcon icon={service.icon} />
       <h3 className="service-card__title">{service.title}</h3>

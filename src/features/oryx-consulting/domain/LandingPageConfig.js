@@ -75,31 +75,35 @@ export const landingPageConfig = {
   ],
 
   team: {
-    title: "OryxCnsulting: El Motor Detrás de la Transformación",
-    subtitle: "Núcleo Técnico Concentrado",
+    title: "El Motor Concentrado: Arquitectos de la Optimización Cuántica",
+    subtitle: "Nuestro núcleo estratégico de 5X impulsa la innovación y la excelencia",
     members: [
       {
         id: 1,
-        role: "Programador",
+        role: "Arquitecto de Software y Cloud",
+        name: "Julián de Jesús Gutiérrez López",
         count: 2,
-        focus: "Construcción de Sistemas Robustos y Escalables",
-        description: "Especialistas en desarrollo de software de alta calidad, arquitectura limpia y código mantenible."
+        focus: "Construcción de sistemas desacoplados y escalables en la nube",
+        description: "Nuestra ingeniería se especializa en arquitecturas de Microservicios con Spring Boot y despliegues automatizados (CI/CD en AWS). No construimos sistemas, construimos ecosistemas de software resilientes.",
+        skills: ["Microservicios", "Spring Boot (Java)", "AWS Cloud Services", "CI/CD", "Docker", "React/Vite", "PWA"],
+        certifications: ["AWS Cloud Foundations"]
       },
       {
         id: 2,
-        role: "Ingeniero de Desarrollo",
-        count: 2,
-        focus: "Innovación en Arquitectura de Software y Cloud",
-        description: "Expertos en diseño de sistemas distribuidos, microservicios y soluciones cloud-native."
-      },
-      {
-        id: 3,
-        role: "Analista de Datos",
+        role: "Analista de Estrategia y Datos",
+        name: "Felipe Armando Prado Vera",
         count: 1,
-        focus: "Inteligencia Predictiva y Estrategia Data-Driven",
-        description: "Transforma datos en insights accionables mediante análisis avanzado y machine learning."
+        focus: "Traducción de desafíos de negocio en modelos de datos accionables",
+        description: "Nuestro análisis trasciende los datos. Con una base sólida en Contabilidad y Finanzas, utilizamos Power BI y SQL para mapear cada solución tecnológica directamente al estado de resultados de su empresa, asegurando un ROI claro y medible.",
+        skills: ["Análisis Contable/Financiero", "SQL", "Power BI", "SAP Business One"],
+        certifications: ["Excel Total", "SAP Business One"]
       }
-    ]
+    ],
+    engineeringPromise: {
+      title: "Nuestra Promesa de Ingeniería: Código de Calidad",
+      description: "Desarrollo basado en principios SOLID y patrón MVVM para una arquitectura escalable y mantenible",
+      principles: ["SOLID", "MVVM", "Arquitectura Escalable", "Código Mantenible"]
+    }
   },
 
   process: {
@@ -206,8 +210,9 @@ export const landingPageConfig = {
     companyName: "OryxCnsulting",
     tagline: "Transformación Tecnológica con Resultados Medibles",
     contact: {
-      email: "contacto@oryxcnsulting.com",
-      phone: "+1 (555) 123-4567"
+      email: "deskrun@gmail.com",
+      phone: "+525591392919",
+      phoneFormatted: "+52 55 9139 2919"
     },
     links: [
       { label: "Servicios", href: "#services" },

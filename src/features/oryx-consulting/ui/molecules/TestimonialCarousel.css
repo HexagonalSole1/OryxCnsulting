@@ -4,15 +4,15 @@
 }
 
 .testimonial-carousel-section__title {
-  font-size: 2.5rem;
+  font-size: var(--font-size-4xl);
   font-weight: 800;
   margin: 0 0 1rem 0;
-  color: white;
+  color: var(--text-primary);
 }
 
 .testimonial-carousel-section__subtitle {
-  font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
   margin: 0;
 }
 
@@ -103,15 +103,16 @@
 }
 
 .testimonial-carousel-section__cta button {
-  background: white;
-  color: #1C1A1A;
-  border: none;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
 }
 
 .testimonial-carousel-section__cta button:hover {
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--bg-secondary);
+  border-color: var(--color-primary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-md);
 }
 
 @media (max-width: 768px) {

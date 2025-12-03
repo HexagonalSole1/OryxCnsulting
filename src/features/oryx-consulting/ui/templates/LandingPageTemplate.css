@@ -1,12 +1,6 @@
 .landing-page-template {
   width: 100%;
   min-height: 100vh;
-  background: #ffffff;
-}
-
-@media (prefers-color-scheme: dark) {
-  .landing-page-template {
-    background: #0f172a;
-  }
+  background: var(--bg-primary);
 }
 

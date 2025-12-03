@@ -46,7 +46,7 @@ export default function Footer({ footerData }) {
                 </li>
                 <li>
                   <a href={`tel:${footerData.contact.phone}`} className="footer__link">
-                    {footerData.contact.phone}
+                    {footerData.contact.phoneFormatted || footerData.contact.phone}
                   </a>
                 </li>
               </ul>

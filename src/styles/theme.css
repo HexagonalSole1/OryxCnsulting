@@ -1,0 +1,96 @@
+/**
+ * Sistema de Variables CSS para Theming
+ * Soporta Light y Dark Mode
+ */
+
+:root {
+  /* Colores Base - Light Mode */
+  --color-primary: #4E0E34;
+  --color-primary-hover: #7A122B;
+  --color-secondary: #7A122B;
+  --color-accent: #868586;
+  
+  /* Backgrounds */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #f0f0f3;
+  --bg-overlay: rgba(255, 255, 255, 0.95);
+  
+  /* Text Colors */
+  --text-primary: #1C1A1A;
+  --text-secondary: #868586;
+  --text-tertiary: #4a5568;
+  --text-inverse: #ffffff;
+  
+  /* Borders */
+  --border-color: rgba(0, 0, 0, 0.1);
+  --border-color-strong: rgba(0, 0, 0, 0.2);
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.18);
+  
+  /* Neumorphic Shadows Light */
+  --neu-shadow-light: 
+    8px 8px 16px #d1d1d4,
+    -8px -8px 16px #ffffff;
+  --neu-shadow-light-hover: 
+    4px 4px 8px #d1d1d4,
+    -4px -4px 8px #ffffff;
+}
+
+[data-theme="dark"] {
+  /* Colores Base - Dark Mode (Paleta Premium Big Tech) */
+  --color-primary: #C084FC; /* Púrpura vibrante para dark mode */
+  --color-primary-hover: #A855F7; /* Púrpura más intenso */
+  --color-secondary: #EC4899; /* Rosa/magenta para acentos */
+  --color-accent: #8B5CF6; /* Púrpura medio */
+  
+  /* Backgrounds - Tonos azul-gris oscuros modernos */
+  --bg-primary: #0A0E27; /* Azul muy oscuro con profundidad */
+  --bg-secondary: #131829; /* Azul oscuro para cards/secciones */
+  --bg-tertiary: #1A1F3A; /* Azul medio oscuro para elevaciones */
+  --bg-overlay: rgba(10, 14, 39, 0.95); /* Overlay con blur */
+  
+  /* Text Colors - Blancos suaves con excelente contraste */
+  --text-primary: #F8FAFC; /* Blanco casi puro para texto principal */
+  --text-secondary: #CBD5E1; /* Gris claro para texto secundario */
+  --text-tertiary: #94A3B8; /* Gris medio para texto terciario */
+  --text-inverse: #0A0E27; /* Para texto sobre fondos claros */
+  
+  /* Borders - Sutiles pero visibles */
+  --border-color: rgba(148, 163, 184, 0.12); /* Gris azulado sutil */
+  --border-color-strong: rgba(148, 163, 184, 0.24); /* Más visible */
+  
+  /* Shadows - Profundidad y elevación */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(148, 163, 184, 0.05);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(148, 163, 184, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(148, 163, 184, 0.1);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(148, 163, 184, 0.12);
+  
+  /* Neumorphic Shadows Dark - Refinados */
+  --neu-shadow-light: 
+    8px 8px 16px rgba(0, 0, 0, 0.4),
+    -8px -8px 16px rgba(26, 31, 58, 0.3);
+  --neu-shadow-light-hover: 
+    4px 4px 8px rgba(0, 0, 0, 0.5),
+    -4px -4px 8px rgba(26, 31, 58, 0.4);
+}
+
+/* Transición suave entre temas */
+* {
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Excepciones para elementos que no deben transicionar */
+canvas,
+svg,
+img,
+video {
+  transition: none;
+}
+

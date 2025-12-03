@@ -1,0 +1,28 @@
+.divider {
+  border: none;
+  height: 1px;
+  margin: 2rem 0;
+  background: var(--border-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.divider--strong {
+  height: 2px;
+  background: var(--border-color-strong);
+}
+
+.divider--vertical {
+  width: 1px;
+  height: auto;
+  margin: 0 2rem;
+  display: inline-block;
+}
+
+.divider--spaced {
+  margin: 3rem 0;
+}
+
+.divider--tight {
+  margin: 1rem 0;
+}
+

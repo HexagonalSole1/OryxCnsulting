@@ -4,17 +4,21 @@
 }
 
 .team-section__title {
-  font-size: 2.5rem;
+  font-size: var(--font-size-4xl);
   font-weight: 800;
   margin: 0 0 1rem 0;
-  color: #1C1A1A;
+  color: var(--text-primary);
 }
 
 .team-section__subtitle {
-  font-size: 1.125rem;
-  color: #868586;
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
   margin: 0;
   font-weight: 600;
+}
+
+.team-section__flow-container {
+  margin-bottom: 3rem;
 }
 
 .team-section__grid {
@@ -24,13 +28,92 @@
   margin-bottom: 3rem;
 }
 
+.team-section__grid--flow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.team-section__member-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-section__grid--visible .team-section__member-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.team-section__flow-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  opacity: 0.6;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: pulse-arrow 2s ease-in-out infinite;
+}
+
+.team-section__flow-arrow:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.team-section__flow-arrow-icon {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+@keyframes pulse-arrow {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(8px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .team-section__grid--flow {
+    flex-direction: column;
+  }
+  
+  .team-section__flow-arrow {
+    transform: rotate(90deg);
+  }
+  
+  @keyframes pulse-arrow {
+    0%, 100% {
+      transform: rotate(90deg) translateY(0);
+    }
+    50% {
+      transform: rotate(90deg) translateY(8px);
+    }
+  }
+}
+
 .team-section__connection {
   margin-top: 4rem;
   padding: 2rem;
-  background: linear-gradient(135deg, rgba(78, 14, 52, 0.1) 0%, rgba(122, 18, 43, 0.1) 100%);
+  background: var(--bg-tertiary);
   border-radius: 16px;
   text-align: center;
   position: relative;
+  border: 1px solid var(--border-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] .team-section__connection {
+  background: linear-gradient(135deg, rgba(192, 132, 252, 0.08) 0%, rgba(236, 72, 153, 0.08) 100%);
+  border-color: rgba(192, 132, 252, 0.2);
 }
 
 .team-section__connection-line {
@@ -40,13 +123,13 @@
   transform: translateX(-50%);
   width: 2px;
   height: 40px;
-  background: linear-gradient(to bottom, transparent, #4E0E34);
+  background: linear-gradient(to bottom, transparent, var(--color-primary));
 }
 
 .team-section__connection-text {
-  font-size: 1.125rem;
+  font-size: var(--font-size-lg);
   line-height: 1.8;
-  color: #1C1A1A;
+  color: var(--text-primary);
   margin: 0;
   max-width: 800px;
   margin-left: auto;
@@ -54,8 +137,27 @@
 }
 
 .team-section__connection-text strong {
-  color: #4E0E34;
+  color: var(--color-primary);
   font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+  .team-section__grid--flow {
+    flex-direction: column;
+  }
+  
+  .team-section__flow-arrow {
+    transform: rotate(90deg);
+  }
+  
+  @keyframes pulse-arrow {
+    0%, 100% {
+      transform: rotate(90deg) translateY(0);
+    }
+    50% {
+      transform: rotate(90deg) translateY(8px);
+    }
+  }
 }
 
 @media (max-width: 768px) {
@@ -72,6 +174,20 @@
     gap: 1.5rem;
   }
   
+  .team-section__grid--flow {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .team-section__member-wrapper {
+    width: 100%;
+  }
+  
+  .team-section__flow-arrow {
+    transform: rotate(90deg);
+    margin: 0.5rem 0;
+  }
+  
   .team-section__connection {
     margin-top: 2rem;
     padding: 1.5rem;
@@ -82,21 +198,4 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .team-section__title {
-    color: #f7fafc;
-  }
-  
-  .team-section__subtitle {
-    color: #cbd5e0;
-  }
-  
-  .team-section__connection-text {
-    color: #e2e8f0;
-  }
-  
-  .team-section__connection {
-    background: linear-gradient(135deg, rgba(78, 14, 52, 0.2) 0%, rgba(122, 18, 43, 0.2) 100%);
-  }
-}
 

@@ -1,4 +1,5 @@
 import Navigation from '../molecules/Navigation'
+import FloatingActionButton from '../molecules/FloatingActionButton'
 import HeroWithDataViz from '../organisms/HeroWithDataViz'
 import ProblemSection from '../molecules/ProblemSection'
 import ServicesGrid from '../organisms/ServicesGrid'
@@ -16,6 +17,7 @@ export default function LandingPageTemplate() {
   return (
     <div className="landing-page-template">
       <Navigation />
+      <FloatingActionButton />
       <HeroWithDataViz heroData={landingPageConfig.hero} />
       <ProblemSection problems={landingPageConfig.problems} />
       <ServicesGrid services={landingPageConfig.services} />

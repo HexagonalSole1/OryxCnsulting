@@ -104,8 +104,9 @@ export default function Navigation() {
           <button
             className="navigation__mobile-toggle"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={isMobileMenuOpen}
+            type="button"
           >
             <span className={`navigation__hamburger ${isMobileMenuOpen ? 'navigation__hamburger--open' : ''}`}>
               <span></span>
@@ -113,6 +114,14 @@ export default function Navigation() {
               <span></span>
             </span>
           </button>
+          
+          {isMobileMenuOpen && (
+            <div 
+              className="navigation__overlay"
+              onClick={() => setIsMobileMenuOpen(false)}
+              aria-hidden="true"
+            />
+          )}
           
           <div className={`navigation__links ${isMobileMenuOpen ? 'navigation__links--open' : ''}`}>
             <button 
@@ -145,7 +154,7 @@ export default function Navigation() {
             <ThemeToggle />
             <button
               onClick={() => scrollToSection('contact')}
-              className="navigation__cta"
+              className="navigation__cta navigation__cta--desktop"
               aria-label="Solicitar consulta gratuita"
             >
               <MessageCircle className="navigation__cta-icon" size={18} strokeWidth={2.5} />

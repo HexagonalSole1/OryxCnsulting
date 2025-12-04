@@ -183,16 +183,6 @@ export default function HeroWithDataViz({ heroData }) {
             >
               {heroData.ctaPrimary}
             </Button>
-            <Button 
-              variant="outline" 
-              size="large"
-              onClick={() => {
-                // Aquí se podría abrir un modal o descargar un PDF
-                alert('Descargando caso de estudio...')
-              }}
-            >
-              {heroData.ctaSecondary}
-            </Button>
           </div>
 
         </div>

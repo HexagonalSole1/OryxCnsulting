@@ -4,8 +4,8 @@
 
 export const landingPageConfig = {
   hero: {
-    title: "Deje de adivinar. Multiplique la Eficiencia Logística con IA: +20% de ROI Garantizado.",
-    subtitle: "Transformamos procesos empresariales complejos mediante inteligencia artificial y arquitectura cloud de vanguardia. Resultados medibles, estrategias probadas.",
+    title: "Deje de adivinar. Multiplique la Eficiencia Logística y Fintech con IA/Cloud: +20% de ROI Garantizado.",
+    subtitle: "Arquitecturas de Microservicios (Spring Boot/Quarkus) y Cloud AWS con Certificación Architecting. Cada línea de código mapeada al estado de resultados. Resultados medibles, estrategias probadas.",
     ctaPrimary: "Solicitar Consulta Estratégica Gratuita",
     ctaSecondary: "Descargar Caso de Estudio"
   },
@@ -36,35 +36,38 @@ export const landingPageConfig = {
   services: [
     {
       id: 1,
-      title: "Optimización de Procesos con IA/ML",
-      description: "Implementamos soluciones de Machine Learning que automatizan decisiones críticas y predicen tendencias empresariales.",
+      title: "Arquitecturas de Microservicios y Optimización con IA/ML",
+      description: "Diseño e implementación de arquitecturas desacopladas con Spring Boot y Quarkus. Soluciones de Machine Learning que automatizan decisiones críticas y predicen tendencias empresariales, con mapeo directo al ROI financiero.",
       icon: "brain",
       features: [
-        "Análisis predictivo avanzado",
-        "Automatización inteligente",
-        "Reducción de costos operativos"
+        "Microservicios con Spring Boot (Java) y Quarkus",
+        "Análisis predictivo avanzado con impacto financiero medible",
+        "Arquitecturas desacopladas siguiendo principios SOLID y MVVM",
+        "Reducción cuantificable de costos operativos"
       ]
     },
     {
       id: 2,
-      title: "Migración y Modernización Cloud",
-      description: "Migramos sus sistemas a arquitecturas cloud escalables, seguras y optimizadas para el rendimiento.",
+      title: "Diseño e Implementación de Arquitecturas Cloud con Certificación AWS Architecting",
+      description: "Migración y modernización a arquitecturas cloud escalables diseñadas por profesionales certificados en AWS Architecting. Implementación de CI/CD, Docker y Kubernetes para despliegues automatizados y seguros.",
       icon: "cloud",
       features: [
-        "Arquitectura cloud nativa",
-        "Seguridad de nivel empresarial",
-        "Escalabilidad automática"
+        "Arquitecturas Cloud con Certificación AWS Architecting (doble certificación en el equipo)",
+        "Seguridad avanzada: Network Support, OWASP ZAP, Metasploit",
+        "CI/CD automatizado y despliegues con Docker/Kubernetes",
+        "Escalabilidad automática y optimización de costos"
       ]
     },
     {
       id: 3,
-      title: "Consultoría Estratégica Tecnológica",
-      description: "Analizamos su infraestructura actual y diseñamos la hoja de ruta tecnológica para alcanzar sus objetivos.",
+      title: "Consultoría Estratégica: De Datos a Valor Financiero",
+      description: "Análisis de infraestructura actual con enfoque en ROI. Integración de SAP Business One, Power BI y SQL para mapear cada solución tecnológica directamente al estado de resultados de su empresa.",
       icon: "chart",
       features: [
-        "Auditoría tecnológica completa",
-        "Roadmap estratégico",
-        "ROI garantizado"
+        "Auditoría tecnológica con análisis contable/financiero",
+        "Roadmap estratégico con métricas de ROI garantizadas",
+        "Integración SAP Business One y Power BI para visualización ejecutiva",
+        "Cada decisión técnica validada por impacto financiero"
       ]
     }
   ],
@@ -78,6 +81,7 @@ export const landingPageConfig = {
         role: "Arquitecto de Software y Cloud",
         name: "Julián de Jesús Gutiérrez López",
         count: 2,
+        image: "/assets/workers/julian.jpg",
         focus: "Construcción de sistemas desacoplados y escalables en la nube",
         description: "Nuestra ingeniería se especializa en arquitecturas de Microservicios con Spring Boot y despliegues automatizados (CI/CD en AWS). No construimos sistemas, construimos ecosistemas de software resilientes.",
         skills: ["Microservicios", "Spring Boot (Java)", "AWS Cloud Services", "CI/CD", "Docker", "React/Vite", "PWA"],
@@ -96,6 +100,7 @@ export const landingPageConfig = {
         role: "Arquitecta de Software y Cloud",
         name: "Roxana Flores Barragán",
         count: 2,
+        image: "/assets/workers/roxana.jpeg",
         focus: "Arquitecturas de alto rendimiento con Quarkus y seguridad avanzada",
         description: "Especialista en desarrollo de microservicios con Quarkus y Spring Boot, con enfoque en seguridad (OWASP ZAP, Metasploit, Wireshark) y arquitecturas cloud escalables. Experiencia en redes y soporte técnico avanzado.",
         skills: ["Microservicios (Quarkus)", "Spring Boot (Java)", "AWS Cloud Architecting", "Seguridad (OWASP ZAP, Metasploit)", "Networking", "Docker", "Kubernetes"],
@@ -113,6 +118,7 @@ export const landingPageConfig = {
         role: "Analista de Estrategia y Datos",
         name: "Felipe Armando Prado Vera",
         count: 1,
+        image: "/assets/workers/felipe.png",
         focus: "Traducción de desafíos de negocio en modelos de datos accionables",
         description: "Nuestro análisis trasciende los datos. Con una base sólida en Contabilidad y Finanzas, utilizamos Power BI y SQL para mapear cada solución tecnológica directamente al estado de resultados de su empresa, asegurando un ROI claro y medible.",
         skills: ["Análisis Contable/Financiero", "SQL", "Power BI", "SAP Business One"],

@@ -1,8 +1,11 @@
-import { Cloud, BarChart3, Code, Database, Server, Package, Zap } from 'lucide-react'
+import { useState } from 'react'
+import { Cloud, BarChart3, Code, Database, Server, Package, Zap, User } from 'lucide-react'
 import Card from '../../../../shared/ui/atoms/Card'
 import './TeamMemberCard.css'
 
 export default function TeamMemberCard({ member }) {
+  const [imageError, setImageError] = useState(false)
+
   const getIcon = () => {
     if (member.role?.includes('Arquitect') || member.role?.includes('Cloud')) {
       return <Cloud className="team-member-card__icon-svg" size={48} strokeWidth={1.5} />
@@ -11,6 +14,10 @@ export default function TeamMemberCard({ member }) {
       return <BarChart3 className="team-member-card__icon-svg" size={48} strokeWidth={1.5} />
     }
     return <Code className="team-member-card__icon-svg" size={48} strokeWidth={1.5} />
+  }
+
+  const getImagePath = () => {
+    return member.image || null
   }
 
   const getSkillIcon = (skill) => {
@@ -23,11 +30,26 @@ export default function TeamMemberCard({ member }) {
     return <Code size={14} />
   }
 
+  const imagePath = getImagePath()
+  const showImage = imagePath && !imageError
+
   return (
     <Card variant="neumorphic" className="team-member-card">
       <div className="team-member-card__header">
-        <div className="team-member-card__icon">
-          {getIcon()}
+        <div className="team-member-card__avatar">
+          {showImage ? (
+            <img
+              src={imagePath}
+              alt={`${member.name} - ${member.role}`}
+              className="team-member-card__photo"
+              onError={() => setImageError(true)}
+              loading="lazy"
+            />
+          ) : (
+            <div className="team-member-card__icon">
+              {getIcon()}
+            </div>
+          )}
         </div>
       </div>
       <h3 className="team-member-card__role">{member.role}</h3>

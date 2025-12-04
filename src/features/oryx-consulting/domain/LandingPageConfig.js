@@ -70,8 +70,8 @@ export const landingPageConfig = {
   ],
 
   team: {
-    title: "El Motor Concentrado: Arquitectos de la Optimización Cuántica",
-    subtitle: "Nuestro núcleo estratégico de 5X impulsa la innovación y la excelencia",
+    title: "OryxCnsulting: El Motor de Tres Velocidades",
+    subtitle: "Ingeniería de Precisión y Estrategia Cuantificable",
     members: [
       {
         id: 1,
@@ -81,10 +81,35 @@ export const landingPageConfig = {
         focus: "Construcción de sistemas desacoplados y escalables en la nube",
         description: "Nuestra ingeniería se especializa en arquitecturas de Microservicios con Spring Boot y despliegues automatizados (CI/CD en AWS). No construimos sistemas, construimos ecosistemas de software resilientes.",
         skills: ["Microservicios", "Spring Boot (Java)", "AWS Cloud Services", "CI/CD", "Docker", "React/Vite", "PWA"],
-        certifications: ["AWS Cloud Foundations"]
+        certifications: [
+          "AWS Academy Cloud Foundations",
+          "AWS Academy Cloud Operations",
+          "AWS Academy Cloud Architecting",
+          "AWS Academy Graduate - AWS Academy Introduction to Cloud",
+          "Network Support and Security",
+          "Operating Systems Basics by Cisco",
+          "Diseño de Experiencia del Usuario (UX) de Google"
+        ]
       },
       {
         id: 2,
+        role: "Arquitecta de Software y Cloud",
+        name: "Roxana Flores Barragán",
+        count: 2,
+        focus: "Arquitecturas de alto rendimiento con Quarkus y seguridad avanzada",
+        description: "Especialista en desarrollo de microservicios con Quarkus y Spring Boot, con enfoque en seguridad (OWASP ZAP, Metasploit, Wireshark) y arquitecturas cloud escalables. Experiencia en redes y soporte técnico avanzado.",
+        skills: ["Microservicios (Quarkus)", "Spring Boot (Java)", "AWS Cloud Architecting", "Seguridad (OWASP ZAP, Metasploit)", "Networking", "Docker", "Kubernetes"],
+        certifications: [
+          "AWS Academy Cloud Foundations",
+          "AWS Academy Cloud Architecting",
+          "AWS Essentials, AWS Academy Introduction to Cloud",
+          "Network Support and Security",
+          "Networking Basics, Network Addressing and Basic Troubleshooting",
+          "TOEFL ITP (B2 Certified)"
+        ]
+      },
+      {
+        id: 3,
         role: "Analista de Estrategia y Datos",
         name: "Felipe Armando Prado Vera",
         count: 1,

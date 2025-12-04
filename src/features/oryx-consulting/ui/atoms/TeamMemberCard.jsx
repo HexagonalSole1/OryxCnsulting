@@ -4,7 +4,7 @@ import './TeamMemberCard.css'
 
 export default function TeamMemberCard({ member }) {
   const getIcon = () => {
-    if (member.role?.includes('Arquitecto') || member.role?.includes('Cloud')) {
+    if (member.role?.includes('Arquitect') || member.role?.includes('Cloud')) {
       return <Cloud className="team-member-card__icon-svg" size={48} strokeWidth={1.5} />
     }
     if (member.role?.includes('Analista') || member.role?.includes('Datos')) {
@@ -29,9 +29,6 @@ export default function TeamMemberCard({ member }) {
         <div className="team-member-card__icon">
           {getIcon()}
         </div>
-        <div className="team-member-card__count">
-          {member.count}x
-        </div>
       </div>
       <h3 className="team-member-card__role">{member.role}</h3>
       {member.name && (
@@ -51,6 +48,39 @@ export default function TeamMemberCard({ member }) {
               </div>
             ))}
           </div>
+        </div>
+      )}
+
+      {member.certifications && member.certifications.length > 0 && (
+        <div className="team-member-card__certifications">
+          <h4 className="team-member-card__certifications-title">Certificaciones Clave</h4>
+          <div className="team-member-card__certifications-list">
+            {member.certifications.slice(0, 3).map((cert, index) => (
+              <span key={index} className="team-member-card__certification-badge">
+                {cert}
+              </span>
+            ))}
+            {member.certifications.length > 3 && (
+              <span className="team-member-card__certification-more">
+                +{member.certifications.length - 3} más
+              </span>
+            )}
+          </div>
+        </div>
+      )}
+
+      {member.links && (member.links.github || member.links.linkedin) && (
+        <div className="team-member-card__links">
+          {member.links.github && (
+            <a href={member.links.github} target="_blank" rel="noopener noreferrer" className="team-member-card__link">
+              GitHub
+            </a>
+          )}
+          {member.links.linkedin && (
+            <a href={member.links.linkedin} target="_blank" rel="noopener noreferrer" className="team-member-card__link">
+              LinkedIn
+            </a>
+          )}
         </div>
       )}
     </Card>

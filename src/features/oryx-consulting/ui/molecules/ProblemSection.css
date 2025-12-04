@@ -39,17 +39,22 @@
   background: var(--bg-primary);
   border-radius: 16px;
   box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
               opacity 600ms cubic-bezier(0.4, 0, 0.2, 1),
-              background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+              background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   border-left: 4px solid var(--color-secondary);
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
 }
 
 [data-theme="dark"] .problem-card {
+  background: var(--bg-secondary);
+  border-color: rgba(192, 132, 252, 0.2);
   border-left-color: var(--color-primary);
-  opacity: 0;
-  transform: translateY(30px) scale(0.95);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 .problem-card--visible {
@@ -57,9 +62,21 @@
   transform: translateY(0) scale(1);
 }
 
+[data-theme="dark"] .problem-card--visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
 .problem-card:hover {
   transform: translateY(-4px) scale(1.01);
   box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+[data-theme="dark"] .problem-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 24px rgba(192, 132, 252, 0.3);
+  background: var(--bg-tertiary);
 }
 
 .problem-card__icon {
@@ -71,11 +88,17 @@
 
 .problem-card__icon-svg {
   color: var(--color-secondary);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] .problem-card__icon-svg {
+  color: var(--color-primary);
 }
 
 .problem-card:hover .problem-card__icon-svg {
   transform: scale(1.1);
+  color: var(--color-primary);
 }
 
 .problem-card__title {
@@ -85,11 +108,19 @@
   color: var(--text-primary);
 }
 
+[data-theme="dark"] .problem-card__title {
+  color: var(--text-primary);
+}
+
 .problem-card__description {
   font-size: var(--font-size-base);
   line-height: 1.7;
   color: var(--text-secondary);
   margin: 0;
+}
+
+[data-theme="dark"] .problem-card__description {
+  color: var(--text-secondary);
 }
 
 @media (max-width: 768px) {
@@ -111,25 +142,4 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .problem-section__title {
-    color: #f7fafc;
-  }
-  
-  .problem-section__subtitle {
-    color: #cbd5e0;
-  }
-  
-  .problem-card {
-    background: #1C1A1A;
-  }
-  
-  .problem-card__title {
-    color: #f7fafc;
-  }
-  
-  .problem-card__description {
-    color: #cbd5e0;
-  }
-}
 

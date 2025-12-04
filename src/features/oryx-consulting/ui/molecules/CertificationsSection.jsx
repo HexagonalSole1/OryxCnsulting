@@ -32,15 +32,6 @@ const certifications = [
     description: 'Certificación en análisis financiero avanzado. Modelado de datos y análisis predictivo para finanzas y logística.',
     level: 'Expert',
     verified: true
-  },
-  {
-    id: 4,
-    name: 'SAP Business One',
-    category: 'ERP Systems',
-    icon: Award,
-    description: 'Certificación en sistemas empresariales integrados. Implementación y optimización de soluciones ERP para empresas medianas.',
-    level: 'Professional',
-    verified: true
   }
 ]
 

@@ -2,6 +2,7 @@ import Navigation from '../molecules/Navigation'
 import HeroWithDataViz from '../organisms/HeroWithDataViz'
 import ProblemSection from '../molecules/ProblemSection'
 import ServicesGrid from '../organisms/ServicesGrid'
+import CaseStudiesSection from '../molecules/CaseStudiesSection'
 import TestimonialCarousel from '../molecules/TestimonialCarousel'
 import TeamSection from '../molecules/TeamSection'
 import CertificationsSection from '../molecules/CertificationsSection'
@@ -18,7 +19,12 @@ export default function LandingPageTemplate() {
       <HeroWithDataViz heroData={landingPageConfig.hero} />
       <ProblemSection problems={landingPageConfig.problems} />
       <ServicesGrid services={landingPageConfig.services} />
-      <TestimonialCarousel testimonials={landingPageConfig.testimonials} />
+      {landingPageConfig.caseStudies && landingPageConfig.caseStudies.length > 0 && (
+        <CaseStudiesSection caseStudies={landingPageConfig.caseStudies} />
+      )}
+      {landingPageConfig.testimonials && landingPageConfig.testimonials.length > 0 && (
+        <TestimonialCarousel testimonials={landingPageConfig.testimonials} />
+      )}
       <TeamSection teamData={landingPageConfig.team} />
       <CertificationsSection />
       <ProcessSection processData={landingPageConfig.process} />

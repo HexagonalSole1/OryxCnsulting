@@ -132,32 +132,31 @@ export const landingPageConfig = {
     ]
   },
 
-  testimonials: [
+  caseStudies: [
     {
       id: 1,
-      name: "Carlos Mendoza",
-      position: "CTO, Fintech Solutions",
-      company: "Fintech Solutions",
-      content: "OryxCnsulting transformó nuestra infraestructura legacy. Redujimos costos operativos en un 35% y mejoramos la velocidad de despliegue en un 200%.",
-      rating: 5
-    },
-    {
-      id: 2,
-      name: "Ana Rodríguez",
-      position: "Directora de Innovación",
-      company: "LogiTech Global",
-      content: "La implementación de IA predictiva nos permitió anticipar demandas y optimizar inventarios. ROI del 28% en el primer trimestre.",
-      rating: 5
-    },
-    {
-      id: 3,
-      name: "Roberto Silva",
-      position: "CEO",
-      company: "SupplyChain Pro",
-      content: "El equipo de OryxCnsulting no solo entregó tecnología, sino una estrategia completa que cambió cómo operamos. Altamente recomendado.",
-      rating: 5
+      company: "Probecare",
+      location: "Cuernavaca, Morelos",
+      industry: "Reparación de Equipos Médicos",
+      description: "Empresa especializada en la reparación de sondas ultrasónicas. Ofrecemos soluciones integrales de mantenimiento y reparación, respaldadas por un equipo de expertos altamente capacitados y el uso de tecnología de vanguardia.",
+      challenge: "Gestión manual de clientes, órdenes de servicio y seguimiento de reparaciones, generando pérdida de información y retrasos en la atención.",
+      solution: "Desarrollo de CRM personalizado para gestión integral de clientes, órdenes de servicio, inventario y seguimiento de reparaciones.",
+      results: [
+        { metric: "40%", label: "Reducción en tiempo de gestión" },
+        { metric: "60%", label: "Aumento en eficiencia operativa" },
+        { metric: "100%", label: "Trazabilidad de órdenes de servicio" },
+        { metric: "30%", label: "Mejora en satisfacción del cliente" }
+      ],
+      technologies: ["React", "Spring Boot", "PostgreSQL", "AWS"],
+      testimonial: {
+        content: "El CRM desarrollado por OryxCnsulting transformó completamente nuestras operaciones. Ahora tenemos control total sobre cada orden de servicio y nuestros clientes reciben un seguimiento profesional en tiempo real.",
+        author: "Equipo Probecare",
+        position: "Gerencia General"
+      }
     }
   ],
+
+  testimonials: [],
 
   contact: {
     title: "Solicite Su Consulta Estratégica Gratuita",

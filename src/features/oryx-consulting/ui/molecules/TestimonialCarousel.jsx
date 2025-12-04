@@ -6,6 +6,10 @@ import Button from '../../../../shared/ui/atoms/Button'
 import './TestimonialCarousel.css'
 
 export default function TestimonialCarousel({ testimonials }) {
+  if (!testimonials || testimonials.length === 0) {
+    return null
+  }
+
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const nextTestimonial = () => {

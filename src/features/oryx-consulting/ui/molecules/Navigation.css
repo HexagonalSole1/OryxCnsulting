@@ -50,11 +50,19 @@
 
 .navigation__logo {
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform var(--transition-fast);
+  text-decoration: none;
+  display: inline-block;
 }
 
 .navigation__logo:hover {
   transform: scale(1.05);
+}
+
+.navigation__logo:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 .navigation__logo-text {

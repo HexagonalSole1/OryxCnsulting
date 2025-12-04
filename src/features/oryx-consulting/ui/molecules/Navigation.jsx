@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { useLocation, useNavigate, Link } from 'react-router-dom'
 import { MessageCircle, ArrowRight } from 'lucide-react'
 import Button from '../../../../shared/ui/atoms/Button'
 import Container from '../../../../shared/ui/atoms/Container'
@@ -6,6 +7,8 @@ import ThemeToggle from '../../../../components/ThemeToggle'
 import './Navigation.css'
 
 export default function Navigation() {
+  const location = useLocation()
+  const navigate = useNavigate()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const navRef = useRef(null)
@@ -31,10 +34,27 @@ export default function Navigation() {
   }, [])
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+    // Si estamos en la landing page, hacer scroll suave
+    if (location.pathname === '/') {
+      const element = document.getElementById(sectionId)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+        setIsMobileMenuOpen(false)
+      }
+    } else {
+      // Si estamos en otra página, navegar a la landing con hash
+      navigate(`/#${sectionId}`)
       setIsMobileMenuOpen(false)
+    }
+  }
+  
+  const handleLogoClick = () => {
+    if (location.pathname === '/') {
+      // Si estamos en la landing, scroll al inicio
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else {
+      // Si estamos en otra página, navegar a la landing
+      navigate('/')
     }
   }
 
@@ -72,16 +92,14 @@ export default function Navigation() {
     >
       <Container>
         <div className="navigation__content">
-          <div 
+          <Link 
+            to="/"
             className="navigation__logo"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            role="button"
-            tabIndex={0}
+            onClick={handleLogoClick}
             aria-label="Ir al inicio"
-            onKeyDown={(e) => e.key === 'Enter' && window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <span className="navigation__logo-text">OryxCnsulting</span>
-          </div>
+          </Link>
           
           <button
             className="navigation__mobile-toggle"

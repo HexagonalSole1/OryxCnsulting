@@ -7,12 +7,7 @@ export const landingPageConfig = {
     title: "Deje de adivinar. Multiplique la Eficiencia Logística con IA: +20% de ROI Garantizado.",
     subtitle: "Transformamos procesos empresariales complejos mediante inteligencia artificial y arquitectura cloud de vanguardia. Resultados medibles, estrategias probadas.",
     ctaPrimary: "Solicitar Consulta Estratégica Gratuita",
-    ctaSecondary: "Descargar Caso de Estudio",
-    credibilityLogos: [
-      { name: "AWS Certified", icon: "aws" },
-      { name: "Azure Partner", icon: "azure" },
-      { name: "Google Cloud", icon: "gcp" }
-    ]
+    ctaSecondary: "Descargar Caso de Estudio"
   },
 
   problems: [
@@ -221,8 +216,8 @@ export const landingPageConfig = {
       { label: "Casos de Estudio", href: "#testimonials" }
     ],
     legal: [
-      { label: "Política de Privacidad", href: "#privacy" },
-      { label: "Términos de Servicio", href: "#terms" }
+      { label: "Política de Privacidad", href: "/privacy" },
+      { label: "Términos de Servicio", href: "/terms" }
     ]
   }
 }

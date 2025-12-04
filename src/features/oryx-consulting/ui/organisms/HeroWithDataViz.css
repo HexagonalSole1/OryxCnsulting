@@ -53,8 +53,7 @@
 /* Animaciones escalonadas - Entrada suave */
 .hero-with-data-viz__title-wrapper,
 .hero-with-data-viz__subtitle-wrapper,
-.hero-with-data-viz__ctas,
-.hero-with-data-viz__credibility {
+.hero-with-data-viz__ctas {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1), 
@@ -63,8 +62,7 @@
 
 .hero-with-data-viz__title-wrapper--visible,
 .hero-with-data-viz__subtitle-wrapper--visible,
-.hero-with-data-viz__ctas--visible,
-.hero-with-data-viz__credibility--visible {
+.hero-with-data-viz__ctas--visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -76,65 +74,6 @@
   flex-wrap: wrap;
 }
 
-.hero-with-data-viz__credibility {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border-color);
-}
-
-.hero-with-data-viz__credibility-label {
-  font-size: var(--font-size-sm);
-  color: var(--text-tertiary);
-  margin: 0 0 1.5rem 0;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 600;
-}
-
-.hero-with-data-viz__logos {
-  display: flex;
-  gap: 2.5rem;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.hero-with-data-viz__logo {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 1.75rem;
-  background: var(--bg-primary);
-  border-radius: 12px;
-  box-shadow: var(--shadow-sm);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), 
-              box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
-              background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid var(--border-color);
-  margin: 0.25rem 0;
-}
-
-.hero-with-data-viz__logo:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-.hero-with-data-viz__logo-icon {
-  color: var(--color-primary);
-  flex-shrink: 0;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-              color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hero-with-data-viz__logo:hover .hero-with-data-viz__logo-icon {
-  color: var(--color-secondary);
-  transform: scale(1.1);
-}
-
-.hero-with-data-viz__logo-name {
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  color: var(--text-primary);
-}
 
 @media (max-width: 768px) {
   .hero-with-data-viz {
@@ -150,17 +89,5 @@
     width: 100%;
   }
   
-  .hero-with-data-viz__logos {
-    gap: 1.5rem;
-  }
-  
-  .hero-with-data-viz__logo {
-    padding: 0.75rem 1.25rem;
-    margin: 0.25rem 0;
-  }
-  
-  .hero-with-data-viz__credibility-label {
-    margin-bottom: 1.25rem;
-  }
 }
 

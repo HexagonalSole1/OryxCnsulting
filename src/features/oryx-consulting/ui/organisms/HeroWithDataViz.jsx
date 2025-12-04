@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { Cloud } from 'lucide-react'
 import HeroTitle from '../atoms/HeroTitle'
 import HeroSubtitle from '../atoms/HeroSubtitle'
 import Button from '../../../../shared/ui/atoms/Button'
@@ -196,26 +195,6 @@ export default function HeroWithDataViz({ heroData }) {
             </Button>
           </div>
 
-          {heroData.credibilityLogos && heroData.credibilityLogos.length > 0 && (
-            <div 
-              className={`hero-with-data-viz__credibility ${isVisible ? 'hero-with-data-viz__credibility--visible' : ''}`}
-              style={{ animationDelay: '450ms' }}
-            >
-              <p className="hero-with-data-viz__credibility-label">Certificaciones y Partners:</p>
-              <div className="hero-with-data-viz__logos">
-                {heroData.credibilityLogos.map((logo, index) => (
-                  <div 
-                    key={index} 
-                    className="hero-with-data-viz__logo"
-                    aria-label={logo.name}
-                  >
-                    <Cloud className="hero-with-data-viz__logo-icon" size={20} strokeWidth={1.5} aria-hidden="true" />
-                    <span className="hero-with-data-viz__logo-name">{logo.name}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </Container>
     </section>

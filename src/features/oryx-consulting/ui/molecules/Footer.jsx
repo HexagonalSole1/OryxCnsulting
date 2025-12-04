@@ -1,12 +1,21 @@
+import { Link, useLocation } from 'react-router-dom'
 import Container from '../../../../shared/ui/atoms/Container'
 import Button from '../../../../shared/ui/atoms/Button'
 import './Footer.css'
 
 export default function Footer({ footerData }) {
+  const location = useLocation()
+  
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+    // Si estamos en la página principal, hacer scroll suave
+    if (location.pathname === '/') {
+      const element = document.getElementById(sectionId)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    } else {
+      // Si estamos en otra página, navegar a la principal con hash
+      window.location.href = `/#${sectionId}`
     }
   }
 
@@ -57,9 +66,9 @@ export default function Footer({ footerData }) {
               <ul className="footer__links-list">
                 {footerData.legal.map((link, index) => (
                   <li key={index}>
-                    <a href={link.href} className="footer__link">
+                    <Link to={link.href} className="footer__link">
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
